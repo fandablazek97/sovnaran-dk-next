@@ -7,6 +7,7 @@ import Logo from './Logo'
 const navigation = [
   { name: 'About us', href: '#about-us' },
   { name: 'Contact', href: '#contact' },
+  { name: 'E-shop', href: 'https://www.sovnaran.cz', external: true },
 ]
 
 export default function Hero() {
@@ -32,7 +33,12 @@ export default function Hero() {
               </button>
               <div className="hidden lg:ml-12 lg:flex lg:gap-x-14">
                 {navigation.map((item) => (
-                  <a key={item.name} href={item.href} className="text-sm font-semibold leading-6 text-gray-900">
+                  <a 
+                    key={item.name} 
+                    href={item.href} 
+                    target={item.external ? "_blank" : "_self"}
+                    className="text-sm font-semibold leading-6 text-gray-900" 
+                  >
                     {item.name}
                   </a>
                 ))}
@@ -61,6 +67,7 @@ export default function Hero() {
                     <a
                       key={item.name}
                       href={item.href}
+                      target={item.external ? "_blank" : "_self"}
                       className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                     >
                       {item.name}
